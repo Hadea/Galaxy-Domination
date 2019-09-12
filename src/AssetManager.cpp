@@ -40,12 +40,29 @@ void AssetManager::FontLoad(std::string pIdentifier, std::string pFileName)
 	}
 }
 
+void AssetManager::SoundLoad(std::string pIdentifier, std::string pFileName)
+{
+	if (!mSound.count(pIdentifier)) //TODO: Reference Counting
+	{
+		sf::SoundBuffer soundBuffer;
+		if (soundBuffer.loadFromFile(pFileName))
+		{
+			mSound[pIdentifier] = soundBuffer;
+		}
+	}
+}
+
 sf::Texture& AssetManager::TextureGet(std::string pIdentifier)
 {
-	return mTextures.at(pIdentifier);
+	return mTextures[pIdentifier];
 }
 
 sf::Font& AssetManager::FontGet(std::string pIdentifier)
 {
-	return mFonts.at(pIdentifier);
+	return mFonts[pIdentifier];
+}
+
+sf::SoundBuffer& AssetManager::SoundGet(std::string pIdentifier)
+{
+	return mSound[pIdentifier];
 }

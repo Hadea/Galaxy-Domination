@@ -4,8 +4,11 @@
 #include "Engine.h"
 #include <vector>
 #include <SFML/Graphics.hpp>
+#include <SFML/Audio.hpp>
 
-
+/* 
+Scene for testing
+*/
 class SceneMainMenu : public IScene
 {
 	// Inherited via IScene
@@ -19,5 +22,7 @@ public:
 private:
 	sf::RenderTexture mFrame;
 	std::vector<GameObject*> mSprites;
+	sf::Sound SoundEffect;
+	sf::SoundBuffer SoundBuff;
 };
 
