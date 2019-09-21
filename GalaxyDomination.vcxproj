@@ -159,6 +159,7 @@
   </ItemGroup>
   <ItemGroup>
     <Media Include="assets\__MainMenu\ButtonClick.wav" />
+    <Media Include="assets\__MainMenu\ButtonClickLong.wav" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

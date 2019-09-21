@@ -40,10 +40,8 @@ SceneMainMenu::SceneMainMenu()
 
 
 	
-	//e->Assets.SoundLoad("ButtonClick", ".\\assets\\__MainMenu\\ButtonClickLong.wav");
-	
-	SoundBuff.loadFromFile(".\\assets\\__MainMenu\\ButtonClickLong.wav");
-	SoundEffect.setBuffer(SoundBuff);
+	e->Assets.SoundLoad("ButtonClick", ".\\assets\\__MainMenu\\ButtonClickLong.wav");
+	SoundEffect.setBuffer(e->Assets.SoundGet("ButtonClick"));
 }
 
 SceneMainMenu::~SceneMainMenu()

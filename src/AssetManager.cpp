@@ -64,5 +64,22 @@ sf::Font& AssetManager::FontGet(std::string pIdentifier)
 
 sf::SoundBuffer& AssetManager::SoundGet(std::string pIdentifier)
 {
-	return mSound[pIdentifier];
+	return mSounds[pIdentifier];
+}
+
+void AssetManager::TextureUnload(std::string pIdentifier)
+{
+	mTextures.erase(pIdentifier);
+}
+
+void AssetManager::FontUnload(std::string pIdentifier)
+{
+
+	mFonts.erase(pIdentifier);
+}
+
+void AssetManager::SoundUnload(std::string pIdentifier)
+{
+
+	mSounds.erase(pIdentifier);
 }
