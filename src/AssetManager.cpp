@@ -42,12 +42,12 @@ void AssetManager::FontLoad(std::string pIdentifier, std::string pFileName)
 
 void AssetManager::SoundLoad(std::string pIdentifier, std::string pFileName)
 {
-	if (!mSound.count(pIdentifier)) //TODO: Reference Counting
+	if (!mSounds.count(pIdentifier)) //TODO: Reference Counting
 	{
 		sf::SoundBuffer soundBuffer;
 		if (soundBuffer.loadFromFile(pFileName))
 		{
-			mSound[pIdentifier] = soundBuffer;
+			mSounds[pIdentifier] = soundBuffer;
 		}
 	}
 }

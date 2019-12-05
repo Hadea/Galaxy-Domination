@@ -135,13 +135,18 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Button.cpp" />
     <ClCompile Include="src\AssetManager.cpp" />
     <ClCompile Include="src\Engine.cpp" />
     <ClCompile Include="src\GameTime.cpp" />
     <ClCompile Include="src\SceneMainMenu.cpp" />
     <ClCompile Include="src\main.cpp" />
+    <ClCompile Include="UIManager.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Button.h" />
+    <ClInclude Include="src\AllocPool.h" />
+    <ClInclude Include="UIManager.h" />
     <ClInclude Include="src\AssetManager.h" />
     <ClInclude Include="src\Engine.h" />
     <ClInclude Include="src\GameObject.h" />

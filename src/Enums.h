@@ -7,3 +7,12 @@ enum EngineState
 	Stoping,
 	Stopped
 };
+
+enum class ButtonState
+{
+	Idle,
+	Inactive,
+	Hover,
+	Focus,
+	Clicked
+};
