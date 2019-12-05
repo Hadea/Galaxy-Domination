@@ -33,6 +33,11 @@ public:
 	AllocPool& operator = (const AllocPool&& other) = delete; // no move assignment needed
 	~AllocPool()
 	{
+		if (mAllocationCount > 0)
+		{
+			__debugbreak();
+			//TODO: kill all remaining allocations or error?
+		}
 		delete[] mData;
 		mData = nullptr; // set to nullptr to crash if there are still pointers using this
 		mHead = nullptr;
@@ -50,7 +55,7 @@ public:
 		AllocPoolChunk<T>* mChunk = mHead;
 		mHead = mHead.NextChunk;
 		T* retVal = new (std::addressof(mChunk->Chunk)) T(std::forward<arguments>(args)...);
-
+		++mAllocationCount;
 		return retVal;
 	}
 
@@ -61,11 +66,12 @@ public:
 		AllocPoolChunk<T>* mChunk = reinterpret_cast<AllocPoolChunk<T>*>(pChunk);
 		mChunk->NextChunk = mHead;
 		mHead = mChunk;
+		--mAllocationCount;
 	}
 
 private:
 	size_t mSize = 0;
 	AllocPoolChunk<T>* mHead = nullptr; 
 	AllocPoolChunk<T>* mData = nullptr;
-
+	size_t mAllocationCount = 0;
 };
